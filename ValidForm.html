@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<script  src="ValidScript.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Validate Form</title>
+  <style>
+    #message {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+ 
+</head>
+<body>
+  
+  <div id="message"></div>
+
+  <form name="frmAccount" onsubmit="return validForm(this);">
+    <label>Fullname:</label>
+    <input type="text" name="fullname"><br>
+
+    <label>Age:</label>
+    <input type="text" name="age"><br>
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female<br>
+
+    <label>Phone:</label>
+    <input type="text" name="phone"><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
