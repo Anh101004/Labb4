@@ -17,29 +17,21 @@ function checkNull(txt) {
 	return reg.test(txt.value);
   }
 
-
-  function showMessage(msg, isError) {
-	const messageContainer = document.getElementById("message");
-	messageContainer.innerHTML = msg;
-	messageContainer.style.color = isError ? "red" : "green";
-  }
-
   function validForm(f) {
-	
 	if (checkNull(f.fullname)) {
-	  showMessage("Fullname must not be empty.", true);
+	  alert("Fullname must not be empty.");
 	  f.fullname.focus();
 	  return false;
 	}
 
 	if (checkNull(f.age)) {
-	  showMessage("Age must not be empty.", true);
+	  alert("Age must not be empty.");
 	  f.age.focus();
 	  return false;
 	}
 
 	if (!isInteger(f.age)) {
-	  showMessage("Age must be a number.", true);
+	  alert("Age must be a number.");
 	  f.age.value = "";
 	  f.age.focus();
 	  return false;
@@ -47,27 +39,25 @@ function checkNull(txt) {
 
 	let age = parseInt(f.age.value, 10);
 	if (age <= 0 || age >= 120) {
-	  showMessage("Age must be between 1 and 120.", true);
+	  alert("Age must be between 1 and 120.");
 	  f.age.value = "";
 	  f.age.focus();
 	  return false;
 	}
 
-   
 	if (notCheck(f.gender)) {
-	  showMessage("You must select a gender.", true);
+	  alert("You must select a gender.");
 	  return false;
 	}
 
- 
 	let phonePattern = /^\(\d{2,4}\)[\s.-]\d{3}[\s.-]\d{3}$/;
 	if (!stringMatch(f.phone, phonePattern)) {
-	  showMessage("Phone number is not valid. Format: (XX) XXX-XXX or (XXX) XXX-XXX", true);
+	  alert("Phone number is not valid. Format: (XX) XXX-XXX or (XXX) XXX-XXX");
 	  f.phone.focus();
 	  return false;
 	}
 
-	showMessage("Form hợp lệ! Đang tải lại...", false);
+	alert("Form hợp lệ! Đang tải lại...");
 	f.reset();
 	return false;
   }
